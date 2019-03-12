@@ -13,3 +13,25 @@ public static int Clamp(int min, int max, int value)
     int difMin = (value - min);
     return (value - (difMax * (difMax >> 31)) + (difMin * (difMin >> 31)));
 }
+private static T[] BubbleSort<T>(T[] arr) where T: IComparable<T>
+{
+    bool changed;
+    do
+    {
+        changed = false;
+        for (int i = 0;i<arr.Length-1;i++)
+        {
+            Console.WriteLine(arr[i].CompareTo(arr[i+1] )+" ");
+            if (arr[i].CompareTo(arr[i+1]) < 1) continue;
+            Switch(ref arr,i);
+            changed = true;
+        }
+    } while (changed);
+    return arr;
+}
+private static void Switch<T>(ref T[] arr,int i) 
+{
+    T temp = arr[i];
+    arr[i] = arr[i + 1];
+    arr[i + 1] = temp;
+}
