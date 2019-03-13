@@ -21,9 +21,8 @@ private static void BubbleSort<T>(ref T[] arr) where T: IComparable<T>
         changed = false;
         for (int i = 0;i<arr.Length-1;i++)
         {
-            Console.WriteLine(arr[i].CompareTo(arr[i+1] )+" ");
             if (arr[i].CompareTo(arr[i+1]) < 1) continue;
-            Switch(ref arr,i);
+            Swap(ref arr[i],arr[i+1]);
             changed = true;
         }
     } while (changed);
@@ -39,18 +38,12 @@ private static void SelectionSort<T>(ref T[] arr) where T: IComparable<T>
             if (arr[j].CompareTo(arr[min])>-1) continue;
             min = j;
         }
-        Switch(ref arr,i,min);
+        Swap(ref arr[i],ref arr[min]);
     }
 }
-private static void Switch<T>(ref T[] arr,int i) 
+private static void Swap<T>(ref T i,ref T j) 
 {
-    T temp = arr[i];
-    arr[i] = arr[i + 1];
-    arr[i + 1] = temp;
-}
-private static void Switch<T>(ref T[] arr,int i,int j) 
-{
-    T temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    T temp = i;
+    i = j;
+    j = temp;
 }
