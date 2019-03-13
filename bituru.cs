@@ -13,7 +13,7 @@ public static int Clamp(int min, int max, int value)
     int difMin = (value - min);
     return (value - (difMax * (difMax >> 31)) + (difMin * (difMin >> 31)));
 }
-private static T[] BubbleSort<T>(T[] arr) where T: IComparable<T>
+private static void BubbleSort<T>(ref T[] arr) where T: IComparable<T>
 {
     bool changed;
     do
@@ -27,9 +27,8 @@ private static T[] BubbleSort<T>(T[] arr) where T: IComparable<T>
             changed = true;
         }
     } while (changed);
-    return arr;
 }
-private static T[] SelectionSort<T>(T[] arr) where T: IComparable<T>
+private static void SelectionSort<T>(ref T[] arr) where T: IComparable<T>
 {
     int len = arr.Length;
     int min = 0;
@@ -42,7 +41,6 @@ private static T[] SelectionSort<T>(T[] arr) where T: IComparable<T>
         }
         Switch(ref arr,i,min);
     }
-    return arr;
 }
 private static void Switch<T>(ref T[] arr,int i) 
 {
