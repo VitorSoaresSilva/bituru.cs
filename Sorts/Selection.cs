@@ -6,9 +6,10 @@ namespace Sorts
         private static void SelectionSort<T>(ref T[] arr) where T: IComparable<T>
         {
             int len = arr.Length;
-            int min = 0;
+            int min;
             for (int i = 0; i < len-1; i++)
             {
+                min = i;
                 for (int j = i+1; j < len; j++)
                 {
                     if (arr[j].CompareTo(arr[min])>-1) continue;
